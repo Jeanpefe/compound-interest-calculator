@@ -15,9 +15,9 @@ import {
 import { Input } from "@/components/ui/input"
 
 const formSchema = z.object({
-  initialBalance: z.number(),
-  periodicalDepositQuantity: z.number(),
-  periodicalDepositTime: z.number(),
+  initialDeposit: z.number(),
+  periodicalContributionAmout: z.number(),
+  investmentFrequency: z.number(),
   anualInterestRate: z.number(),
   duration: z.number()
 })
@@ -29,9 +29,9 @@ function App() {
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      initialBalance: 1000,
-      periodicalDepositQuantity: 100,
-      periodicalDepositTime: 100,
+      initialDeposit: 1000,
+      periodicalContributionAmout: 100,
+      investmentFrequency: 100,
       anualInterestRate: 1.000,
       duration: 2
     },
@@ -47,16 +47,65 @@ function App() {
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           <FormField
             control={form.control}
-            name="initialBalance"
+            name="initialDeposit"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Username</FormLabel>
+                <FormLabel>Initial deposit</FormLabel>
                 <FormControl>
                   <Input placeholder="shadcn" {...field} />
                 </FormControl>
-                <FormDescription>
-                  This is your public display name.
-                </FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="periodicalContributionAmout"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Periodical contribution amout</FormLabel>
+                <FormControl>
+                  <Input placeholder="shadcn" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="investmentFrequency"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Investment frequency</FormLabel>
+                <FormControl>
+                  <Input placeholder="shadcn" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="anualInterestRate"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Anual interest rate</FormLabel>
+                <FormControl>
+                  <Input placeholder="shadcn" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="duration"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Investment duration</FormLabel>
+                <FormControl>
+                  <Input placeholder="shadcn" {...field} />
+                </FormControl>
                 <FormMessage />
               </FormItem>
             )}
