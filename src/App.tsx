@@ -43,7 +43,7 @@ function App() {
   }
 
   return (
-    <body className="bg-primary h-screen">
+    <Card>
       <section className="bg-card h-screen w-2/5">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
@@ -116,7 +116,7 @@ function App() {
           </form>
         </Form>
       </section >
-    </body>
+    </Card>
   )
 }
 
