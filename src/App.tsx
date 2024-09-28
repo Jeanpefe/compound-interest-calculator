@@ -14,6 +14,7 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './components/ui/card'
 
 const formSchema = z.object({
   initialDeposit: z.number(),
@@ -44,7 +45,11 @@ function App() {
 
   return (
     <Card>
-      <section className="bg-card h-screen w-2/5">
+      <CardHeader>
+        <CardTitle>Compound Interest Calculator</CardTitle>
+        <CardDescription>Calculate your investment growth over time.</CardDescription>
+      </CardHeader>
+      <CardContent>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
             <FormField
@@ -52,9 +57,9 @@ function App() {
               name="initialDeposit"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-card-foreground">Initial deposit</FormLabel>
+                  <FormLabel>Initial deposit</FormLabel>
                   <FormControl>
-                    <Input className="text-card-foreground" placeholder="1000" {...field} />
+                    <Input placeholder="1000" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -115,7 +120,7 @@ function App() {
             <Button variant="outline" type="submit" className='bg-primary'>Submit</Button>
           </form>
         </Form>
-      </section >
+      </CardContent >
     </Card>
   )
 }
