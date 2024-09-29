@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button"
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -31,11 +30,6 @@ function App() {
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      initialDeposit: 1000,
-      periodicalContributionAmout: 100,
-      investmentFrequency: 100,
-      anualInterestRate: 1.000,
-      duration: 2
     },
   })
 
@@ -45,7 +39,7 @@ function App() {
 
   return (
     <body className='bg-background h-screen'>
-      <Card>
+      <Card className='w-82'>
         <CardHeader>
           <CardTitle>Compound Interest Calculator</CardTitle>
           <CardDescription>Calculate your investment growth over time.</CardDescription>
@@ -60,7 +54,7 @@ function App() {
                   <FormItem>
                     <FormLabel>Initial deposit</FormLabel>
                     <FormControl>
-                      <Input placeholder="1000" {...field} />
+                      <Input type="number" placeholder="1000" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -73,7 +67,7 @@ function App() {
                   <FormItem>
                     <FormLabel>Periodical contribution amout</FormLabel>
                     <FormControl>
-                      <Input placeholder="100" {...field} />
+                      <Input type="number" placeholder="100" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -86,7 +80,7 @@ function App() {
                   <FormItem>
                     <FormLabel>Investment frequency</FormLabel>
                     <FormControl>
-                      <Input placeholder="shadcn" {...field} />
+                      <Input type="number" placeholder="shadcn" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -99,7 +93,7 @@ function App() {
                   <FormItem>
                     <FormLabel>Anual interest rate</FormLabel>
                     <FormControl>
-                      <Input placeholder="1.000" {...field} />
+                      <Input type="number" placeholder="1.000" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -112,7 +106,7 @@ function App() {
                   <FormItem>
                     <FormLabel>Investment duration</FormLabel>
                     <FormControl>
-                      <Input placeholder="2" {...field} />
+                      <Input type="number" placeholder="2" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
