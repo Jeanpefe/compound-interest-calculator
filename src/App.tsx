@@ -44,84 +44,86 @@ function App() {
   }
 
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle>Compound Interest Calculator</CardTitle>
-        <CardDescription>Calculate your investment growth over time.</CardDescription>
-      </CardHeader>
-      <CardContent>
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-            <FormField
-              control={form.control}
-              name="initialDeposit"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Initial deposit</FormLabel>
-                  <FormControl>
-                    <Input placeholder="1000" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="periodicalContributionAmout"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Periodical contribution amout</FormLabel>
-                  <FormControl>
-                    <Input placeholder="100" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="investmentFrequency"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Investment frequency</FormLabel>
-                  <FormControl>
-                    <Input placeholder="shadcn" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="anualInterestRate"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Anual interest rate</FormLabel>
-                  <FormControl>
-                    <Input placeholder="1.000" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="duration"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Investment duration</FormLabel>
-                  <FormControl>
-                    <Input placeholder="2" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <Button variant="outline" type="submit" className='bg-primary'>Submit</Button>
-          </form>
-        </Form>
-      </CardContent >
-    </Card>
+    <body className='bg-background h-screen'>
+      <Card>
+        <CardHeader>
+          <CardTitle>Compound Interest Calculator</CardTitle>
+          <CardDescription>Calculate your investment growth over time.</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+              <FormField
+                control={form.control}
+                name="initialDeposit"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Initial deposit</FormLabel>
+                    <FormControl>
+                      <Input placeholder="1000" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="periodicalContributionAmout"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Periodical contribution amout</FormLabel>
+                    <FormControl>
+                      <Input placeholder="100" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="investmentFrequency"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Investment frequency</FormLabel>
+                    <FormControl>
+                      <Input placeholder="shadcn" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="anualInterestRate"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Anual interest rate</FormLabel>
+                    <FormControl>
+                      <Input placeholder="1.000" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="duration"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Investment duration</FormLabel>
+                    <FormControl>
+                      <Input placeholder="2" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <Button variant="outline" type="submit" className='bg-primary'>Submit</Button>
+            </form>
+          </Form>
+        </CardContent >
+      </Card>
+    </body>
   )
 }
 
