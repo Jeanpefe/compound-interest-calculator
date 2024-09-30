@@ -16,11 +16,26 @@ import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './components/ui/card'
 
 const formSchema = z.object({
-  initialDeposit: z.number(),
-  periodicalContributionAmout: z.number(),
-  investmentFrequency: z.number(),
-  anualInterestRate: z.number(),
-  duration: z.number()
+  initialDeposit: z
+    .string()
+    .transform((val) => parseFloat(val))
+    .refine((val) => !isNaN(val), { message: "Debe ser un número válido" }),
+  periodicalContributionAmout: z
+    .string()
+    .transform((val) => parseFloat(val))
+    .refine((val) => !isNaN(val), { message: "Debe ser un número válido" }),
+  investmentFrequency: z
+    .string()
+    .transform((val) => parseFloat(val))
+    .refine((val) => !isNaN(val), { message: "Debe ser un número válido" }),
+  anualInterestRate: z
+    .string()
+    .transform((val) => parseFloat(val))
+    .refine((val) => !isNaN(val), { message: "Debe ser un número válido" }),
+  duration: z
+    .string()
+    .transform((val) => parseFloat(val))
+    .refine((val) => !isNaN(val), { message: "Debe ser un número válido" }),
 })
 
 type FormData = z.infer<typeof formSchema>;
@@ -29,8 +44,6 @@ function App() {
 
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
-    defaultValues: {
-    },
   })
 
   function onSubmit(values: FormData) {
