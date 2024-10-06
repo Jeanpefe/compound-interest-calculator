@@ -31,7 +31,7 @@ const formSchema = z.object({
     .refine((val) => !isNaN(val), { message: "Debe ser un número válido" }),
   anualInterestRate: z
     .string()
-    .transform((val) => parseFloat(val) / 100) //para que sea en %
+    .transform((val) => parseFloat(val.replace('%', '')) / 100) //para que sea en %
     .refine((val) => !isNaN(val), { message: "Debe ser un número válido" }),
   duration: z
     .string()
@@ -107,7 +107,10 @@ function App() {
                   <FormItem>
                     <FormLabel>Anual interest rate</FormLabel>
                     <FormControl>
-                      <Input type="number" placeholder="1.000" {...field} />
+                      <Input type="text" placeholder="1.000" {...field} value={field.value ? `${field.value}%` : ''} onChange={(e) => {
+                            const rawValue = e.target.value.replace('%', '');
+                            field.onChange(rawValue);
+						}}/>
                     </FormControl>
                     <FormMessage />
                   </FormItem>
