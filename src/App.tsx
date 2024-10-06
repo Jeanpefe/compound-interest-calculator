@@ -31,7 +31,7 @@ const formSchema = z.object({
     .refine((val) => !isNaN(val), { message: "Debe ser un número válido" }),
   anualInterestRate: z
     .string()
-    .transform((val) => parseFloat(val))
+    .transform((val) => parseFloat(val) / 100) //para que sea en %
     .refine((val) => !isNaN(val), { message: "Debe ser un número válido" }),
   duration: z
     .string()
