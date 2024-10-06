@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './components/ui/card'
+import { calculateInterest } from './utils/calculateInterest'
 
 const formSchema = z.object({
   initialDeposit: z
@@ -47,7 +48,7 @@ function App() {
   })
 
   function onSubmit(values: FormData) {
-    console.log(values)
+    console.log(calculateInterest(values))
   }
 
   return (
