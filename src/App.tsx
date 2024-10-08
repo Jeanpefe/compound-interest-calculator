@@ -15,6 +15,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './components/ui/card'
 import { calculateInterest } from './utils/calculateInterest'
+import { useState } from 'react'
 
 const formSchema = z.object({
   initialDeposit: z
@@ -42,13 +43,14 @@ const formSchema = z.object({
 type FormData = z.infer<typeof formSchema>;
 
 function App() {
+  const [investmentReturn, setInvestmentReturn] = useState<number>(0)
 
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
   })
 
   function onSubmit(values: FormData) {
-    console.log(calculateInterest(values))
+    setInvestmentReturn(calculateInterest(values))
   }
 
   return (
@@ -108,9 +110,9 @@ function App() {
                     <FormLabel>Anual interest rate</FormLabel>
                     <FormControl>
                       <Input type="text" placeholder="1.000" {...field} value={field.value ? `${field.value}%` : ''} onChange={(e) => {
-                            const rawValue = e.target.value.replace('%', '');
-                            field.onChange(rawValue);
-						}}/>
+                        const rawValue = e.target.value.replace('%', '');
+                        field.onChange(rawValue);
+                      }} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -133,6 +135,9 @@ function App() {
             </form>
           </Form>
         </CardContent >
+      </Card>
+      <Card>
+        <p>{investmentReturn}</p>
       </Card>
     </body>
   )
